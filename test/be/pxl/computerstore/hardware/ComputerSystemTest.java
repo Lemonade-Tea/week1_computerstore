@@ -1,5 +1,8 @@
 package be.pxl.computerstore.hardware;
 
+import be.pxl.computerstore.hardware.builder.ComputerCaseBuilder;
+import be.pxl.computerstore.hardware.builder.MouseBuilder;
+import be.pxl.computerstore.hardware.builder.ProcessorBuilder;
 import be.pxl.computerstore.util.TooManyPeripheralsException;
 import org.junit.Test;
 

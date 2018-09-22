@@ -2,6 +2,7 @@ package be.pxl.computerstore.gui;
 
 import be.pxl.computerstore.data.ComputerComponentTypes;
 import be.pxl.computerstore.data.Warehouse;
+import be.pxl.computerstore.hardware.*;
 import be.pxl.computerstore.util.TooManyPeripheralsException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

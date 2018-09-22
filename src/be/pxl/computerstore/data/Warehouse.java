@@ -1,5 +1,6 @@
 package be.pxl.computerstore.data;
 
+import be.pxl.computerstore.hardware.*;
 import be.pxl.computerstore.util.Dimension;
 
 public class Warehouse {

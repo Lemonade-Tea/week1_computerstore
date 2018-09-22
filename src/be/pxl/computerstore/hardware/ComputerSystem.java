@@ -5,11 +5,12 @@ import be.pxl.computerstore.util.TooManyPeripheralsException;
 
 public class ComputerSystem implements Computable {
 
+    public static final int MAX_PERIPHERAL = 3;
     private Processor processor;
     private HardDisk hardDisk;
     private ComputerCase computerCase;
 
-    private Peripheral[] peripherals = new Peripheral[3];
+    private Peripheral[] peripherals = new Peripheral[MAX_PERIPHERAL];
 
     public ComputerSystem() {
     }
@@ -25,7 +26,7 @@ public class ComputerSystem implements Computable {
     }
 
     public void addPeripheral(Peripheral peripheral) throws TooManyPeripheralsException {
-        if (getNumberOfPeripherals() >= 3) {
+        if (getNumberOfPeripherals() >= MAX_PERIPHERAL) {
             throw new TooManyPeripheralsException("Er mogen maar 3 peripherals per computersystem toegevoegd worden.");
         } else {
             peripherals[getNumberOfPeripherals()] = peripheral;
@@ -69,18 +70,26 @@ public class ComputerSystem implements Computable {
 
     @Override
     public double totalPriceExcl() {
-        return 0;
+        double totalPriceExcluding = 0;
+        for (int i = 1; i < getNumberOfPeripherals(); i++) {
+            totalPriceExcluding += peripherals[i - 1].getPrice();
+        }
+        if (processor != null){
+            totalPriceExcluding += processor.getPrice();
+        }
+        if (getHardDisk() != null) {
+            totalPriceExcluding += hardDisk.getPrice();
+        }
+        if (getComputerCase() != null) {
+            totalPriceExcluding += computerCase.getPrice();
+        }
+        return totalPriceExcluding;
     }
 
     @Override
     public double totalPriceIncl() {
-        double totalPriceIncluding = 0;
-        for (int i = 1; i < getNumberOfPeripherals(); i++) {
-            totalPriceIncluding += peripherals[i - 1].getPrice();
-        }
-        totalPriceIncluding += processor.getPrice();
-        totalPriceIncluding += hardDisk.getPrice();
-        totalPriceIncluding += computerCase.getPrice();
+        double totalPriceIncluding = totalPriceExcl();
+              totalPriceIncluding *= 1.21;
         return totalPriceIncluding;
     }
 }

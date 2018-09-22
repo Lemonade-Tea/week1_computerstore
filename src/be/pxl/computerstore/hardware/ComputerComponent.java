@@ -73,7 +73,7 @@ public abstract class ComputerComponent {
 
     @Override
     public String toString() {
-        return name + "(" + articleNumber + ")";
+        return name + " (" + articleNumber + ")";
     }
 
     public String getFullDescription() {
