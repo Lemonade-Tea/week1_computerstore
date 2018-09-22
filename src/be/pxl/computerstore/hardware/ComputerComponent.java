@@ -77,9 +77,9 @@ public abstract class ComputerComponent {
     }
 
     public String getFullDescription() {
-        return "ArticleNumber = " + articleNumber +
-                "\nVendor = " + vendor +
-                "\nName = " + name +
-                "\nPrice = " + price;
+        return "ArticleNumber = " + this.getArticleNumber() +
+                "\nVendor = " + this.getVendor() +
+                "\nName = " + this.getName() +
+                "\nPrice = " + this.getPrice();
     }
 }

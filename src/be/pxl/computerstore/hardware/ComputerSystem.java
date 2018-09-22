@@ -83,13 +83,11 @@ public class ComputerSystem implements Computable {
         if (getComputerCase() != null) {
             totalPriceExcluding += computerCase.getPrice();
         }
-        return totalPriceExcluding;
+        return Math.round(totalPriceExcluding);
     }
 
     @Override
     public double totalPriceIncl() {
-        double totalPriceIncluding = totalPriceExcl();
-              totalPriceIncluding *= 1.21;
-        return totalPriceIncluding;
+        return Math.round(totalPriceExcl() * (1 + BTW / 100.0) * 100) / 100.0;
     }
 }

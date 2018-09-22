@@ -6,4 +6,8 @@ public abstract class Peripheral extends ComputerComponent{
         super(vendor, name, price);
     }
 
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + " " + super.toString();
+    }
 }
