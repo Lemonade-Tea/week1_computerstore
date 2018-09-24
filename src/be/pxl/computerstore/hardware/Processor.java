@@ -15,14 +15,13 @@ public class Processor extends ComputerComponent {
 
     public void setClockspeed(double clockspeed) {
         if (clockspeed < MIN_CLOCKSPEED) {
-            this.clockspeed = MIN_CLOCKSPEED;
-        } else {
-            this.clockspeed = clockspeed;
+            clockspeed = MIN_CLOCKSPEED;
         }
+        this.clockspeed = clockspeed;
     }
 
     @Override
-    public String getFullDescription(){
+    public String getFullDescription() {
         return super.getFullDescription() + "\nClock speed = " + this.clockspeed + " GHz";
     }
 }

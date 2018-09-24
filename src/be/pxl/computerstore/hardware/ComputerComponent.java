@@ -32,7 +32,7 @@ public abstract class ComputerComponent {
         } else {
             articleNumber = vendor.substring(0, 3);
         }
-
+        articleNumber = articleNumber.toUpperCase();
         articleNumber += "-";
 
         StringBuilder code = new StringBuilder();
